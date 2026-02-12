@@ -4,14 +4,11 @@ import jakarta.validation.Valid;
 import karthiCodes.spring.com.Basic.CRUD.operations.Entity.Movie;
 import karthiCodes.spring.com.Basic.CRUD.operations.dto.MovieRequestDTO;
 import karthiCodes.spring.com.Basic.CRUD.operations.dto.MovieResponseDTO;
-import karthiCodes.spring.com.Basic.CRUD.operations.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import karthiCodes.spring.com.Basic.CRUD.operations.service.MovieService;
 
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -37,6 +34,8 @@ public class Moviecontroller {
 
     @PutMapping("/id")
     public Movie updateMovie(@RequestParam Movie param) {return movieService.updateMovie(param);}
+
+    @PatchMapping
 
     @DeleteMapping("/{id}")
     public void deleteMovie(@PathVariable Long id) {  movieService.deleteMovieById(id); }
